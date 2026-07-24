@@ -1,12 +1,13 @@
 # Graph Spec
 
-Fill every section. Prefer the diamond unless the stop rule says stay one agent.
+Domain-agnostic checklist. Fill for *this* goal. Prefer the diamond unless the stop rule says stay one agent.
 
 ## Goal
 
 - **Request (one sentence):**
 - **Success criteria:**
-- **Irreversible actions (if any):**
+- **Irreversible actions (if any):** send / publish / refund / invoice / go-live / other:
+- **Output path(s) for the final merge:**
 
 ## Stop rule check
 
@@ -16,11 +17,13 @@ Fill every section. Prefer the diamond unless the stop rule says stay one agent.
 
 ## Jobs (boxes)
 
-| ID | Job (one assistant) | Output path (unique) |
-|----|---------------------|----------------------|
-| J1 | | |
-| J2 | | |
-| J3 | | |
+| ID | Job (one assistant) | Angle / lens | Output path (unique) |
+|----|---------------------|--------------|----------------------|
+| J1 | | | |
+| J2 | | | |
+| J3 | | | |
+
+Add/remove rows as needed. Cap parallel workers (default 5).
 
 ## Edges (arrows)
 
@@ -34,13 +37,12 @@ Fake edges to delete:
 
 ## Diamond layout (if graph)
 
-1. **Split:**
-2. **Workers (parallel):** list angles / jobs
-3. **Verifier lenses** (distinct questions):
-   - Correctness:
-   - Freshness / currency:
-   - Source quality:
-   - Fit to request:
+1. **Split:** how the request becomes independent jobs
+2. **Workers (parallel):** list by ID
+3. **Verifier lenses** (distinct questions — adapt to domain):
+   - Lens A:
+   - Lens B:
+   - Lens C:
 4. **Merge:** how survivors become one result
 5. **Result path:**
 
@@ -48,7 +50,7 @@ Fake edges to delete:
 
 - **Where the last yes sits:**
 - **Why undo would be expensive there:**
-- **Pauses required mid-graph:** (e.g. positioning doc)
+- **Mid-graph pauses (if any):** what the user must approve before continuing
 
 ## Wiring caps
 
@@ -66,7 +68,7 @@ What travels with the work (found / decided / left):
 
 ## Runnable prompt
 
-Paste-ready. Must include `use a workflow:`.
+Paste-ready. Must include `use a workflow:`. Describe *this* goal's jobs — do not copy a fixed SEO/GTM/research menu.
 
 ```text
 [write the full prompt here]
@@ -74,6 +76,7 @@ Paste-ready. Must include `use a workflow:`.
 
 ## Verification
 
+- [ ] Designed for this goal (not a canned example menu)
 - [ ] No fake edges remain
 - [ ] Verifier is a separate job; lenses are distinct
 - [ ] Verify before merge
