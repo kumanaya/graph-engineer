@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640" role="img" aria-label="The diamond: split, parallel workers, verify, merge, with a commit step between every stage">
+  <rect width="960" height="640" fill="#0f1115"/>
+  <rect x="16" y="16" width="928" height="608" fill="none" stroke="#2a2f3a" stroke-width="2" rx="14"/>
+
+  <text x="48" y="66" fill="#f5f7fa" font-family="ui-sans-serif,system-ui,Segoe UI,Helvetica,Arial,sans-serif" font-size="30" font-weight="700">The diamond</text>
+  <text x="48" y="96" fill="#8b93a7" font-family="ui-sans-serif,system-ui,Segoe UI,Helvetica,Arial,sans-serif" font-size="16">Split → parallel workers → separate verifier → merge. Verify first, merge second.</text>
+
+  <g font-family="ui-sans-serif,system-ui,Segoe UI,Helvetica,Arial,sans-serif" font-size="14">
+    <!-- splitter -->
+    <rect x="404" y="128" width="152" height="46" rx="8" fill="#182033" stroke="#3d63a8"/>
+    <text x="480" y="157" fill="#cfe0ff" text-anchor="middle" font-size="15" font-weight="600">splitter</text>
+    <text x="480" y="196" fill="#7f8798" text-anchor="middle" font-size="12.5">commits the units</text>
+
+    <!-- edges to workers -->
+    <line x1="404" y1="151" x2="212" y2="238" stroke="#3d63a8" stroke-width="1.5"/>
+    <line x1="556" y1="151" x2="748" y2="238" stroke="#3d63a8" stroke-width="1.5"/>
+    <line x1="480" y1="174" x2="480" y2="238" stroke="#3d63a8" stroke-width="1.5"/>
+    <text x="286" y="192" fill="#6ee7a8" font-size="12">units</text>
+    <text x="628" y="192" fill="#6ee7a8" font-size="12">units</text>
+
+    <!-- workers -->
+    <rect x="96" y="238" width="152" height="46" rx="8" fill="#182033" stroke="#2f6b4f"/>
+    <text x="172" y="267" fill="#c9f5dd" text-anchor="middle" font-size="15" font-weight="600">worker A</text>
+    <rect x="404" y="238" width="152" height="46" rx="8" fill="#182033" stroke="#2f6b4f"/>
+    <text x="480" y="267" fill="#c9f5dd" text-anchor="middle" font-size="15" font-weight="600">worker B</text>
+    <rect x="712" y="238" width="152" height="46" rx="8" fill="#182033" stroke="#2f6b4f"/>
+    <text x="788" y="267" fill="#c9f5dd" text-anchor="middle" font-size="15" font-weight="600">worker C</text>
+
+    <!-- edges to verifier -->
+    <line x1="172" y1="284" x2="420" y2="366" stroke="#2f6b4f" stroke-width="1.5"/>
+    <line x1="480" y1="284" x2="480" y2="366" stroke="#2f6b4f" stroke-width="1.5"/>
+    <line x1="788" y1="284" x2="540" y2="366" stroke="#2f6b4f" stroke-width="1.5"/>
+    <text x="150" y="340" fill="#6ee7a8" font-size="12">findings-a@v1</text>
+    <text x="650" y="340" fill="#6ee7a8" font-size="12">findings-c@v1</text>
+
+    <!-- verifier -->
+    <rect x="392" y="366" width="176" height="46" rx="8" fill="#182033" stroke="#a8563d"/>
+    <text x="480" y="395" fill="#ffd6c9" text-anchor="middle" font-size="15" font-weight="600">verifier</text>
+    <text x="480" y="434" fill="#7f8798" text-anchor="middle" font-size="12.5">requires what it inspects · verdict · unit · reason · evidence · scope</text>
+
+    <!-- red path -->
+    <line x1="640" y1="389" x2="856" y2="389" stroke="#a8563d" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="748" y="380" fill="#ff9d7a" font-size="12">red → that unit only</text>
+    <line x1="856" y1="389" x2="856" y2="524" stroke="#a8563d" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <line x1="856" y1="524" x2="172" y2="524" stroke="#a8563d" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <line x1="172" y1="524" x2="172" y2="284" stroke="#a8563d" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+    <!-- commit to merge -->
+    <line x1="480" y1="412" x2="480" y2="462" stroke="#6ea8fe" stroke-width="1.5"/>
+    <text x="498" y="450" fill="#9fc4ff" font-size="12">green → commit</text>
+
+    <!-- merge -->
+    <rect x="404" y="462" width="152" height="42" rx="8" fill="#1b1a2b" stroke="#7b6bd8"/>
+    <text x="480" y="489" fill="#ded7ff" text-anchor="middle" font-size="15" font-weight="600">merge (code)</text>
+    <text x="212" y="480" fill="#7f8798" font-size="12.5">dedupe · rank · filter</text>
+  </g>
+
+  <line x1="48" y1="552" x2="912" y2="552" stroke="#2a2f3a" stroke-width="1.5"/>
+  <text x="48" y="580" fill="#8b93a7" font-family="ui-sans-serif,system-ui,Segoe UI,Helvetica,Arial,sans-serif" font-size="13">Workers run in one batch, each with its own envelope and lens — they never see each other's context. The correction path returns the failed unit alone.</text>
+  <text x="48" y="604" fill="#8b93a7" font-family="ui-sans-serif,system-ui,Segoe UI,Helvetica,Arial,sans-serif" font-size="13">The merge cannot start before the verifier is GREEN: its inputs are verified artifacts, and readiness is computed from committed state.</text>
+</svg>

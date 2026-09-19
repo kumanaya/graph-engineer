@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" width="960" height="720" role="img" aria-label="The graph engineering vocabulary: six words for the shape of a graph, five that make it run">
+  <rect width="960" height="720" fill="#0f1115"/>
+  <rect x="16" y="16" width="928" height="688" fill="none" stroke="#2a2f3a" stroke-width="2" rx="14"/>
+
+  <text x="48" y="66" fill="#f5f7fa" font-family="ui-sans-serif,system-ui,Segoe UI,Helvetica,Arial,sans-serif" font-size="30" font-weight="700">The graph engineering vocabulary</text>
+  <text x="48" y="98" fill="#8b93a7" font-family="ui-sans-serif,system-ui,Segoe UI,Helvetica,Arial,sans-serif" font-size="16">Six words describe the shape of a graph. Five more make it run.</text>
+  <text x="48" y="122" fill="#e0b341" font-family="ui-sans-serif,system-ui,Segoe UI,Helvetica,Arial,sans-serif" font-size="15">Workers are isolated. The graph is not.</text>
+
+  <g font-family="ui-sans-serif,system-ui,Segoe UI,Helvetica,Arial,sans-serif">
+    <!-- shape -->
+    <text x="48" y="162" fill="#6ee7a8" font-size="14" font-weight="700" letter-spacing="1.5">THE SHAPE</text>
+
+    <text x="48" y="196" fill="#f5f7fa" font-size="18" font-weight="700">1 · The box</text>
+    <text x="230" y="196" fill="#b9c0cf" font-size="15">One job you would hand to one assistant. One box, one outcome.</text>
+
+    <text x="48" y="228" fill="#f5f7fa" font-size="18" font-weight="700">2 · The arrow</text>
+    <text x="230" y="228" fill="#b9c0cf" font-size="15">A hand-off — real only when a named artifact crosses it.</text>
+
+    <text x="48" y="260" fill="#f5f7fa" font-size="18" font-weight="700">3 · The artifact</text>
+    <text x="230" y="260" fill="#b9c0cf" font-size="15">Versioned output one node produces and another consumes: findings@v2.</text>
+
+    <text x="48" y="292" fill="#f5f7fa" font-size="18" font-weight="700">4 · The fake edge</text>
+    <text x="230" y="292" fill="#b9c0cf" font-size="15">An arrow with no work crossing it. Here it cannot even be written down.</text>
+
+    <text x="48" y="324" fill="#f5f7fa" font-size="18" font-weight="700">5 · The diamond</text>
+    <text x="230" y="324" fill="#b9c0cf" font-size="15">Split → parallel workers → separate verifier → merge. Verify first.</text>
+
+    <text x="48" y="356" fill="#f5f7fa" font-size="18" font-weight="700">6 · The gate</text>
+    <text x="230" y="356" fill="#b9c0cf" font-size="15">Your last yes, placed by blast radius — never by confidence.</text>
+
+    <!-- machinery -->
+    <text x="48" y="402" fill="#6ea8fe" font-size="14" font-weight="700" letter-spacing="1.5">THE MACHINERY</text>
+
+    <text x="48" y="436" fill="#f5f7fa" font-size="18" font-weight="700">7 · The loop</text>
+    <text x="230" y="436" fill="#b9c0cf" font-size="15">Produce → check → correct, inside a node. Three attempts, then escalate.</text>
+
+    <text x="48" y="468" fill="#f5f7fa" font-size="18" font-weight="700">8 · The code node</text>
+    <text x="230" y="468" fill="#b9c0cf" font-size="15">Merge · rank · dedupe · route. Not a model call, not a spawn.</text>
+
+    <text x="48" y="500" fill="#f5f7fa" font-size="18" font-weight="700">9 · The return edges</text>
+    <text x="230" y="500" fill="#b9c0cf" font-size="15">Correction fixes this run. Learning changes every run after.</text>
+
+    <text x="48" y="532" fill="#f5f7fa" font-size="18" font-weight="700">10 · Graph State</text>
+    <text x="230" y="532" fill="#b9c0cf" font-size="15">One owner, one file, written only by the orchestrator.</text>
+
+    <text x="48" y="564" fill="#f5f7fa" font-size="18" font-weight="700">11 · The envelope</text>
+    <text x="230" y="564" fill="#b9c0cf" font-size="15">What a node receives; the scheduler decides readiness; commit makes it true.</text>
+  </g>
+
+  <line x1="48" y1="596" x2="912" y2="596" stroke="#2a2f3a" stroke-width="1.5"/>
+  <text x="48" y="628" fill="#8b93a7" font-family="ui-sans-serif,system-ui,Segoe UI,Helvetica,Arial,sans-serif" font-size="14">A spawned worker sees only its envelope. Facts move between nodes as committed, versioned artifacts.</text>
+  <text x="48" y="652" fill="#8b93a7" font-family="ui-sans-serif,system-ui,Segoe UI,Helvetica,Arial,sans-serif" font-size="14">Agents do not coordinate through shared conversations — they coordinate through graph state.</text>
+  <text x="48" y="682" fill="#5c6478" font-family="ui-sans-serif,system-ui,Segoe UI,Helvetica,Arial,sans-serif" font-size="13">graph-engineer · references/vocabulary.md</text>
+</svg>

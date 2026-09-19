@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" width="960" height="720" role="img" aria-label="Wiring rules: bounded caps, one writer per path, code owns the edges, verification gates consumption, spawning executes rather than defines the graph">
+  <rect width="960" height="720" fill="#0f1115"/>
+  <rect x="16" y="16" width="928" height="688" fill="none" stroke="#2a2f3a" stroke-width="2" rx="14"/>
+
+  <text x="48" y="66" fill="#f5f7fa" font-family="ui-sans-serif,system-ui,Segoe UI,Helvetica,Arial,sans-serif" font-size="28" font-weight="700">The wiring</text>
+  <text x="48" y="96" fill="#8b93a7" font-family="ui-sans-serif,system-ui,Segoe UI,Helvetica,Arial,sans-serif" font-size="16">Five guardrails that keep a graph from becoming an expensive accident.</text>
+
+  <g font-family="ui-sans-serif,system-ui,Segoe UI,Helvetica,Arial,sans-serif">
+    <!-- 1 -->
+    <text x="48" y="150" fill="#6ee7a8" font-size="16" font-weight="700">1 · Bounded everything</text>
+    <text x="48" y="176" fill="#b9c0cf" font-size="14">Every cycle carries a cap; every run has a budget. At the cap the plan is at fault, not the unit.</text>
+    <rect x="48" y="192" width="864" height="52" rx="8" fill="#141926" stroke="#243044"/>
+    <text x="72" y="214" fill="#e8edf6" font-size="13.5">attempts per node: 3</text>
+    <text x="248" y="214" fill="#e8edf6" font-size="13.5">spawns per round: 5</text>
+    <text x="452" y="214" fill="#e8edf6" font-size="13.5">spawn budget: 20</text>
+    <text x="656" y="214" fill="#e8edf6" font-size="13.5">concurrency: min(graph, Hermes limit)</text>
+    <text x="72" y="234" fill="#7f8798" font-size="12.5">at the cap → ESCALATED → back to graph design. Never attempt four.</text>
+
+    <!-- 2 -->
+    <text x="48" y="292" fill="#6ee7a8" font-size="16" font-weight="700">2 · One writer per path — including state</text>
+    <text x="48" y="318" fill="#b9c0cf" font-size="14">Every artifact has exactly one producing node. Only the orchestrator writes Graph State.</text>
+    <rect x="48" y="334" width="420" height="66" rx="8" fill="#12201a" stroke="#2f6b4f"/>
+    <text x="72" y="358" fill="#c9f5dd" font-size="13.5">worker A → findings-a.v1.md</text>
+    <text x="72" y="380" fill="#c9f5dd" font-size="13.5">worker B → findings-b.v1.md</text>
+    <rect x="492" y="334" width="420" height="66" rx="8" fill="#221416" stroke="#7a3b3b"/>
+    <text x="516" y="358" fill="#ffd0d0" font-size="13.5">two nodes appending to report.md</text>
+    <text x="516" y="380" fill="#ffd0d0" font-size="13.5">a worker writing state.json</text>
+
+    <!-- 3 -->
+    <text x="48" y="444" fill="#6ea8fe" font-size="16" font-weight="700">3 · Code owns the edges</text>
+    <text x="48" y="470" fill="#b9c0cf" font-size="14">Readiness, routing, versioning, hashing and state updates are code — not model calls.</text>
+    <rect x="48" y="486" width="420" height="62" rx="8" fill="#141926" stroke="#243044"/>
+    <text x="72" y="512" fill="#9fc4ff" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="13">if report.severity &gt;= high:  gate()</text>
+    <text x="72" y="534" fill="#9fc4ff" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="13">else:                       merge()</text>
+    <text x="492" y="512" fill="#7f8798" font-size="13">One correct answer = code, not a model call:</text>
+    <text x="492" y="534" fill="#b9c0cf" font-size="13">compare · dedupe · rank · filter · route · commit</text>
+
+    <!-- 4 + 5 -->
+    <text x="48" y="592" fill="#e0b341" font-size="16" font-weight="700">4 · Verification gates consumption</text>
+    <text x="48" y="616" fill="#b9c0cf" font-size="14">A consumer of a verified artifact waits for the verdict. Verify first, merge second.</text>
+    <text x="48" y="656" fill="#e0b341" font-size="16" font-weight="700">5 · Spawning executes; it does not define the graph</text>
+    <text x="48" y="680" fill="#b9c0cf" font-size="14">The graph decides what runs. Nothing is spawned "to coordinate" — an artifact crosses the edge.</text>
+  </g>
+</svg>
