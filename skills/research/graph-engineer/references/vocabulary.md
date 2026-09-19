@@ -1,6 +1,6 @@
 # The Graph Engineering Vocabulary
 
-Six ideas explain every graph. Learn them in order; they build.
+Six ideas describe the **shape** of every graph. Learn them in order; they build. Three more, at the end, make it **run**.
 
 ## 1. The Box (a job)
 
@@ -47,6 +47,28 @@ The one human approval before anything irreversible. It sits where a mistake wou
 - Gate on everything → you are the bottleneck
 - Gate on nothing → nobody is watching
 - Place the gate where risk is highest (send, publish, refund, invoice, go live)
+
+## Tier 2: the machinery
+
+The six above are the shape. Three more make it run — a shape with no check and no way back is a diagram.
+
+### 7. The Loop (inside a box)
+
+Produce → check → correct → repeat until green. The check is the whole thing, and it must be something a program could settle: “the test suite exits 0” is a check, “no errors were raised” is not.
+
+The loop lives **inside** a box; the graph lives **between** boxes. See `references/loop-design.md`.
+
+### 8. The Code node (not a model)
+
+Merging, ranking, deduplicating, comparing exports, filtering, routing. One correct answer, a few lines of code. Running those through a model adds cost, latency and variance to a step that had none.
+
+If you can describe the transformation without the words *judge*, *decide*, *assess* or *summarize*, it is code. See `references/node-types.md`.
+
+### 9. The Return edges (correction and learning)
+
+The short edge sends a failed unit back to the box that produced it — and only that unit, never the batch. The long edge sends an accepted result back to the splitter as a constraint, so the next run starts where this one ended.
+
+A graph with neither is a pipeline: it produces output and forgets. See `references/return-paths.md`.
 
 ## Why this vocabulary
 

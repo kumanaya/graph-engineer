@@ -23,8 +23,8 @@ The topic (one search intent)
 ## Pattern notes
 
 - Parallel jobs must not write the same file; merge later
-- Fact-checker is a separate job; claims without sources flagged at the top
-- Human gate owns publish / send / go-live
+- Fact-checker is a separate job; claims without sources flagged at the top — “every claim carries a source” is the green condition
+- Human gate owns publish / send / go-live — hard-to-reverse lane, does not open
 - Output shape in this example: `drafts/`
 
 ## Historical prompt (example)

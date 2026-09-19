@@ -25,9 +25,9 @@ Angles must fit the question — do not force domain-specific angles onto unrela
 
 ## Pattern notes
 
-- Every finding needs a **source link** and a **date**
+- Every finding needs a **source link** and a **date** — that is the green condition each angle is checked against
 - Skeptic tries to **disprove** every finding
-- Drop what fails; merge survivors ranked by confidence
+- Drop what fails; merge survivors ranked by confidence. A failed angle goes back to its own researcher, not to the whole set
 - Output shape in this example: `research-report.md`
 - Human gate: user reads before anything is treated as decided
 

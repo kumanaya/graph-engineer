@@ -29,8 +29,8 @@ Inputs (clear, short)
 ## Pattern notes
 
 - Mid-graph gate before expensive/irreversible downstream work
-- Checker uses a different job than producers; compares against the foundation
-- One writer per file; package at the end
+- Checker uses a different job than producers; compares against the foundation — “every asset traces to a line in the positioning doc” is the green condition
+- One writer per file; package at the end. Off-asset work returns to its own producer, not the batch
 - Output shape in this example: `launch-kit/`
 
 ## Historical prompt (example)
